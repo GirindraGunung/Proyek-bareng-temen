@@ -27,7 +27,7 @@ func _process(delta):
 
 func direction():
 	#X_DIRECTION
-	if position.y < 70 and position.y > -70:
+	if position.y < 75 and position.y > -75:
 		if (global_position.x - joystick.global_position.x) >= deadZone:
 			joystick.direction.x = 1
 		elif (global_position.x - joystick.global_position.x) <= -deadZone:
@@ -36,7 +36,7 @@ func direction():
 		joystick.direction.x = 0
 	
 	#Y_DIRECTION
-	if position.x < 70 and position.x > -70:
+	if position.x < 75 and position.x > -75:
 		if (global_position.y - joystick.global_position.y) >= deadZone:
 			joystick.direction.y = 1
 		elif (global_position.y - joystick.global_position.y) <= -deadZone:

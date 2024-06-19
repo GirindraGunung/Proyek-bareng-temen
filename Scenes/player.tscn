@@ -83,4 +83,5 @@ anchor_bottom = 1.0
 grow_vertical = 0
 
 [node name="joystick" parent="CanvasLayer/bottom_Left" instance=ExtResource("4_176gn")]
-position = Vector2(155, -139)
+position = Vector2(343, -273)
+scale = Vector2(2, 2)
