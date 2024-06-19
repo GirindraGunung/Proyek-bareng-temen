@@ -4,12 +4,14 @@ extends CharacterBody2D
 var speed = 300
 @onready var animation = $animation
 @onready var hitbox = $hitbox
+@onready var joystick = $CanvasLayer/bottom_Left/joystick
 
 
 
 #MOVEMENT
 func _physics_process(delta):
-	var input = Vector2(Input.get_axis("left", "right"), Input.get_axis("up", "down"))
+	#var input = Vector2(Input.get_axis("left", "right"), Input.get_axis("up", "down"))
+	var input = joystick.direction
 	velocity = speed*input
 	#ANIMATION
 	if velocity.x or velocity.y != 0:
@@ -25,5 +27,4 @@ func _physics_process(delta):
 			hitbox.position.x = 1.5
 	else:
 		animation.play("idle")
-	print(hitbox.position.x)
 	move_and_slide()

@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://c1m2sll1eg1a5"]
+[gd_scene load_steps=12 format=3 uid="uid://c1m2sll1eg1a5"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_v0d2m"]
 [ext_resource type="Texture2D" uid="uid://pd5yyccwq8eh" path="res://Sprites/player_Sprites/idle.png" id="3_1g74l"]
 [ext_resource type="Texture2D" uid="uid://drjwrvrgulqfl" path="res://Sprites/player_Sprites/walk.png" id="3_oysg1"]
+[ext_resource type="PackedScene" uid="uid://dn4mu6ywuntxj" path="res://Scenes/joystick.tscn" id="4_176gn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gcx2d"]
 size = Vector2(15, 6)
@@ -56,7 +57,6 @@ animations = [{
 }]
 
 [node name="player" type="CharacterBody2D"]
-position = Vector2(0, -12)
 script = ExtResource("1_v0d2m")
 
 [node name="hitbox" type="CollisionShape2D" parent="."]
@@ -72,3 +72,15 @@ sprite_frames = SubResource("SpriteFrames_b37t1")
 animation = &"idle"
 
 [node name="camera" type="Camera2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="bottom_Left" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+
+[node name="joystick" parent="CanvasLayer/bottom_Left" instance=ExtResource("4_176gn")]
+position = Vector2(155, -139)
